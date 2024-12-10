@@ -175,6 +175,27 @@ def actionDiv():
     else:
         messagebox.showerror("Error", "Enter a Valid number\ne.g. 123, 0.123, .123, -0.123, 123.456")
 
+# Square root function
+def actionSqrt():
+    Showtemplabel.delete(0, END)
+    Showlabel.delete(0, END)
+
+    Showtemplabel.config(fg='purple', bg='#dabfff')
+    Showtemplabel.insert(0, 'Square Root')
+    Showtemplabel.place(relx=0.5, rely=0.5, anchor='center')
+
+    num1 = Numberentry1.get()
+    if is_number(num1) == True:
+        num1 = casting(num1)
+        if num1 >= 0:
+            ans = str(math.sqrt(num1))
+            Showlabel.insert(0, ans)
+            Showlabel.place(relx=0.5, rely=0.6, anchor='center')
+        else:
+            messagebox.showerror("Error", "Cannot calculate square root of a negative number!")
+    else:
+        messagebox.showerror("Error", "Enter a Valid number\ne.g. 123, 0.123, .123, -0.123, 123.456")
+
 root = Tk();
 root.title('My First Python Calculator');
 root.geometry('380x300+200+250');
